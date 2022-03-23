@@ -1,0 +1,105 @@
+.promo {
+    padding: 66px 0px 220px;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 40px solid #fff;
+        border-right: 50vw solid transparent;
+        z-index: -1;
+        @media (min-width: 576px) {
+            border-top: 80px solid #fff;
+        }
+        @media (min-width: 768px) {
+            border-top: 120px solid #fff;
+        }
+        @media (min-width: 992px) {
+            border-top: 160px solid #fff;
+        }
+        @media (min-width: 1200px) {
+            border-top: 219px solid #fff;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-top: 40px solid #fff;
+        border-left: 50vw solid transparent;
+        z-index: -1;
+        @media (min-width: 576px) {
+            border-top: 80px solid #fff;
+        }
+        @media (min-width: 768px) {
+            border-top: 120px solid #fff;
+        }
+        @media (min-width: 992px) {
+            border-top: 160px solid #fff;
+        }
+        @media (min-width: 1200px) {
+            border-top: 219px solid #fff;
+        }
+    }
+    &__container {
+        position: relative;
+    }
+    &__title {
+        margin-top: 24px;
+        font-family: "Foxhole";
+        font-weight: 400;
+        font-size: 124px;
+        line-height: 120%;
+        text-align: center;
+        text-transform: uppercase;
+        @media (min-width: 1200px) {
+            font-size: 144px;
+        }
+    }
+    &__small-flower {
+        position: absolute;
+        top: -24px;
+        left: 15px;
+        width: 300px;
+        @media (min-width: 1200px) {
+            left: -9px;
+            width: 350px;
+        }
+        @media (min-width: 1400px) {
+            width: auto;
+        }
+    }
+    &__big-flower {
+        position: absolute;
+        top: 110px;
+        right: 15px;
+        width: 600px;
+        z-index: -1;
+        @media (min-width: 1200px) {
+            top: 147px;
+        }
+        @media (min-width: 1400px) {
+            width: auto;
+            right: -53px;
+        }
+    }
+    &__subtitle {
+        margin: 66px auto;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 100%;
+        text-align: center;
+        color: #4f6555;
+        @media (min-width: 1200px) {
+            margin: 78px auto;
+            font-size: 36px;
+        }
+    }
+}

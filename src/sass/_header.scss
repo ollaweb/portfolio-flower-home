@@ -1,0 +1,40 @@
+.header {
+    padding: 54px 0px 32px;
+    background-color: #fff;
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+    &__logo {
+        display: none;
+        @media (min-width: 992px) {
+            display: block;
+            margin-left: 35px;
+        }
+        & img {
+            margin-left: 7px;
+        }
+    }
+    &__logo-text {
+        margin-top: 12px;
+        color: $main-color-green;
+        text-transform: uppercase;
+    }
+}
+
+.menu {
+    display: none;
+    @media (min-width: 992px) {
+        display: block;
+        margin-right: 124px;
+        flex: 1 1 auto;
+    }
+    &__items {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        width: 580px;
+        font-size: 24px;
+        color: $main-color-green;
+    }
+}
