@@ -20,10 +20,10 @@ const path = {
     },
     build: {
         html: buildPath + '/',
-        css: buildPath + '/accets/css',
-        js: buildPath + '/accets/js',
-        img: buildPath + '/accets/img',
-        fonts: buildPath + '/accets/fonts',
+        css: buildPath + '/css',
+        js: buildPath + '/js',
+        img: buildPath + '/img',
+        fonts: buildPath + '/fonts',
     },
     clean: './' + buildPath,
 }

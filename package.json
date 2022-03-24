@@ -1,7 +1,7 @@
 {
-  "name": "my-web-site",
+  "name": "Flower House",
   "version": "1.0.0",
-  "description": "my-web-site",
+  "description": "Flower House",
   "author": "ollaweb",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -37,11 +37,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ollaweb/my-web-site.git"
+    "url": "git+https://github.com/ollaweb/portfolio-flower-home.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ollaweb/my-web-site/issues"
+    "url": "https://github.com/ollaweb/portfolio-flower-home/issues"
   },
-  "homepage": "https://github.com/ollaweb/my-web-site#readme"
+  "homepage": "https://github.com/ollaweb/portfolio-flower-home#readme"
 }
