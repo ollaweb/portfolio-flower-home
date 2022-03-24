@@ -1,6 +1,10 @@
 .promo {
-    padding: 66px 0px 220px;
+    padding: 1px 0px 80px;
     position: relative;
+    background-color: #e1e1b8;
+    @media (min-width: 992px) {
+        padding: 66px 0px 220px;
+    }
 
     &::before {
         content: "";
@@ -11,7 +15,6 @@
         height: 0;
         border-top: 40px solid #fff;
         border-right: 50vw solid transparent;
-        z-index: -1;
         @media (min-width: 576px) {
             border-top: 80px solid #fff;
         }
@@ -34,7 +37,6 @@
         height: 0;
         border-top: 40px solid #fff;
         border-left: 50vw solid transparent;
-        z-index: -1;
         @media (min-width: 576px) {
             border-top: 80px solid #fff;
         }
@@ -52,22 +54,48 @@
         position: relative;
     }
     &__title {
+        position: relative;
         margin-top: 24px;
         font-family: "Foxhole";
         font-weight: 400;
-        font-size: 124px;
+        font-size: 74px;
         line-height: 120%;
         text-align: center;
         text-transform: uppercase;
+        z-index: 5;
+        @media (min-width: 400px) {
+            font-size: 84px;
+        }
+        @media (min-width: 768px) {
+            font-size: 100px;
+        }
+        @media (min-width: 992px) {
+            font-size: 124px;
+        }
         @media (min-width: 1200px) {
             font-size: 144px;
         }
     }
     &__small-flower {
         position: absolute;
-        top: -24px;
-        left: 15px;
-        width: 300px;
+        top: -8px;
+        left: 5%;
+        width: 133px;
+        opacity: 0.8;
+        @media (min-width: 576px) {
+            left: 12%;
+        }
+        @media (min-width: 768px) {
+            left: 10%;
+            top: 9px;
+            width: 195px;
+        }
+        @media (min-width: 992px) {
+            top: -24px;
+            left: 60px;
+            width: 300px;
+            opacity: 1;
+        }
         @media (min-width: 1200px) {
             left: -9px;
             width: 350px;
@@ -78,10 +106,20 @@
     }
     &__big-flower {
         position: absolute;
-        top: 110px;
-        right: 15px;
-        width: 600px;
-        z-index: -1;
+        top: 97px;
+        right: 5%;
+        width: 300px;
+        opacity: 0.8;
+        @media (min-width: 768px) {
+            right: 10%;
+            width: 386px;
+        }
+        @media (min-width: 992px) {
+            top: 110px;
+            right: 15px;
+            width: 600px;
+            opacity: 1;
+        }
         @media (min-width: 1200px) {
             top: 147px;
         }
@@ -91,15 +129,60 @@
         }
     }
     &__subtitle {
-        margin: 66px auto;
+        position: relative;
+        margin: 26px auto 0;
         font-weight: 400;
-        font-size: 30px;
+        font-size: 21px;
         line-height: 100%;
         text-align: center;
         color: #4f6555;
+        z-index: 5;
+        @media (min-width: 400px) {
+            margin: 30px auto 0;
+            font-size: 24px;
+        }
+        @media (min-width: 768px) {
+            margin: 66px auto 0;
+            font-size: 24px;
+        }
+        @media (min-width: 992px) {
+            font-size: 26px;
+        }
         @media (min-width: 1200px) {
-            margin: 78px auto;
+            margin: 78px auto 0;
             font-size: 36px;
+        }
+    }
+    &__buttons {
+        position: relative;
+        margin: 77px 0 0 0px;
+        z-index: 5;
+        @media (min-width: 576px) {
+            margin: 77px 0 0 50px;
+        }
+        @media (min-width: 768px) {
+            margin: 77px 0 0 100px;
+        }
+        @media (min-width: 992px) {
+            margin: 144px 0 0 104px;
+        }
+        @media (min-width: 1200px) {
+            margin: 144px 0 0 44px;
+        }
+        @media (min-width: 1400px) {
+            margin: 219px 0 0 9px;
+        }
+    }
+    &__button {
+        display: block;
+        &_light {
+            margin-top: 22px;
+            @media (min-width: 768px) {
+                margin-top: 36px;
+            }
+            @media (min-width: 1200px) {
+                margin-top: 44px;
+            }
         }
     }
 }

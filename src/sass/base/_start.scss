@@ -80,7 +80,9 @@ h6 {
 }
 
 // ---------------------------
-
+*a {
+    color: inherit;
+}
 body {
     font-family: "Excentra Pro";
     font-weight: 300;
@@ -91,7 +93,8 @@ body {
     //     }
     // }
 
-    background-color: #e1e1b8;
+    // background-color: #e1e1b8;
+    background-color: #fff;
 }
 
 .image-bg {
