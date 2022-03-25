@@ -2,14 +2,17 @@
 @import "./base/start";
 @import "./base/container";
 @import "./base/variables";
+@import "./base/mixins";
 // @import "./base/mixins";
 @import "./UI/burger";
 @import "./UI/button";
 @import "./UI/title";
+@import "./UI/_slider";
 
 @import "./header";
 @import "./promo";
 @import "./about";
+@import "./flowers";
 @import "./card";
 @import "./consultation";
 @import "./footer";

@@ -51,6 +51,9 @@ function sync() {
     browserSync.init({
         server: {
             baseDir: './' + buildPath + '/'
+            // serveStaticOptions: { //для многостраничного сайта
+            //     extensions: ["html"]
+            // }
         }
     });
 }

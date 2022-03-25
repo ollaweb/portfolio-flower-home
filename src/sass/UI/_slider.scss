@@ -1,0 +1,95 @@
+.flowers-slider {
+    display: flex;
+    justify-content: space-between;
+    &__prev {
+        position: relative;
+        @include arrow-left;
+        &::before {
+            top: 136px;
+        }
+        &::after {
+            top: 149px;
+        }
+    }
+    &__next {
+        position: relative;
+        @include arrow-right;
+        &::before {
+            top: 136px;
+        }
+        &::after {
+            top: 149px;
+        }
+    }
+    &__body {
+        flex: 1 1 auto;
+    }
+    &__items {
+        margin: 0px 55px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        text-align: center;
+    }
+    &__image {
+        width: 300px;
+        height: 300px;
+        & img {
+            border-radius: 18px;
+        }
+    }
+    &__title {
+        position: relative;
+        margin-top: 26px;
+        font-family: "Foxhole";
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 121%;
+        color: $main-color-green;
+        text-transform: uppercase;
+        @include arrow-down;
+        &::before,
+        &::after {
+            bottom: -34px;
+        }
+    }
+    &__price {
+        margin-top: 77px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 100%;
+        color: $main-color-green;
+    }
+    &__bonuses {
+        margin-top: 9px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        color: $footer;
+    }
+    &__button {
+        margin-top: 38px;
+    }
+    &__dots {
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        height: 17px;
+    }
+    &__dot {
+        position: relative;
+
+        @include dot;
+        &:not(:last-child) {
+            margin-right: 37px;
+        }
+    }
+}
+
+.active-dot {
+    @include dot;
+    &::after {
+        background-color: $spot-color-active;
+    }
+}

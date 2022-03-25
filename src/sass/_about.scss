@@ -13,19 +13,10 @@
         & > :not(:last-child) {
             margin-bottom: 49px;
             position: relative;
+            @include dot;
             &::after {
-                content: "";
-                position: absolute;
                 bottom: -32px;
                 left: 50%;
-                width: 13px;
-                height: 13px;
-                border-radius: 100%;
-                background-color: $spot-color;
-                @media (min-width: 768px) {
-                    width: 17px;
-                    height: 17px;
-                }
             }
         }
         &::before,
