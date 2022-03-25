@@ -1,7 +1,10 @@
 .about {
     padding-top: 37px;
-    padding-bottom: 75px;
+    padding-bottom: 45px;
     background-color: $background-color;
+    @media (min-width: 992px) {
+        padding-bottom: 75px;
+    }
     &__items {
         margin-top: 34px;
         margin-bottom: 40px;
