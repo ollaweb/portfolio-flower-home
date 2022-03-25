@@ -1,0 +1,11 @@
+.feedback {
+    padding-top: 9px;
+    padding-bottom: 81px;
+    background-color: $background-color;
+    &__slider {
+        margin-top: 84px;
+        @media (min-width: 992px) {
+            margin: 84px 119px 0;
+        }
+    }
+}
