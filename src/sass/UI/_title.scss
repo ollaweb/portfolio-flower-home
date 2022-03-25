@@ -1,0 +1,17 @@
+.title {
+    font-family: "Foxhole";
+    font-weight: 400;
+    font-size: 68px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: $main-color-green;
+    @media (min-width: 576px) {
+        font-size: 76px;
+    }
+    @media (min-width: 768px) {
+        font-size: 86px;
+    }
+    @media (min-width: 992px) {
+        font-size: 96px;
+    }
+}

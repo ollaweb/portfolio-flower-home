@@ -47,6 +47,7 @@
 }
 
 .button {
+    position: relative;
     padding: 10px 20px;
     font-weight: 400;
     font-size: 14px;
@@ -56,11 +57,12 @@
     border-radius: 23px;
     background-color: $main-color-green;
     transition: all 0.4s ease-out;
+    z-index: 5;
     &:hover {
-        background-color: #fff;
-        & a {
-            color: $main-color-green;
-        }
+        background-color: $main-color-green-hover;
+        // & a {
+        //     color: $main-color-green;
+        // }
     }
     @media (min-width: 400px) {
         font-size: 16px;

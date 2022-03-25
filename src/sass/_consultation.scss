@@ -1,0 +1,84 @@
+.consultation {
+    padding-top: 101px;
+    padding-bottom: 192px;
+    background-color: $background-color;
+    &__block {
+        position: relative;
+        padding: 54px 10px 50px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 70px;
+        @media (min-width: 400px) {
+            padding: 54px 15px 50px;
+        }
+        @media (min-width: 576px) {
+            padding: 54px 30px 92px;
+        }
+        @media (min-width: 992px) {
+            margin: 0 35px;
+        }
+    }
+    &__plant {
+        position: absolute;
+        top: -70px;
+        left: 50%;
+        width: 184px;
+        transform: translateX(-50%);
+        @media (min-width: 576px) {
+            width: 200px;
+        }
+        @media (min-width: 768px) {
+            width: auto;
+        }
+    }
+    &__text {
+        margin-top: 28px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: #000;
+        @media (min-width: 400px) {
+            font-size: 20px;
+        }
+        @media (min-width: 768px) {
+            margin-top: 37px;
+            font-size: 24px;
+        }
+    }
+    &__form {
+        margin: 54px auto 0;
+        max-width: 778px;
+        @media (min-width: 576px) {
+            margin: 67px auto 0;
+        }
+        @media (min-width: 768px) {
+            margin: 85px auto 0;
+        }
+        & input {
+            display: block;
+            padding: 15px 20px;
+            width: 100%;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 100%;
+            color: $main-color-green;
+            background-color: $input-background;
+            border-radius: 50px;
+            @media (min-width: 576px) {
+                padding: 19px 42px 15px;
+            }
+            @media (min-width: 768px) {
+                font-size: 20px;
+            }
+        }
+        & > :not(:last-child) {
+            margin-bottom: 34px;
+            @media (min-width: 576px) {
+                margin-bottom: 44px;
+            }
+            @media (min-width: 768px) {
+                margin-bottom: 54px;
+            }
+        }
+    }
+}
