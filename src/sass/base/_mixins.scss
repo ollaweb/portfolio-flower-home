@@ -5,10 +5,14 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 21px;
-        height: 2.5px;
+        width: 12px;
+        height: 2px;
         background-color: $main-color-green;
         transform: rotate(-44deg);
+        @media (min-width: 400px) {
+            width: 21px;
+            height: 2.5px;
+        }
     }
     &::after {
         transform: rotate(46deg);
@@ -22,10 +26,14 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 21px;
-        height: 2.5px;
+        width: 12px;
+        height: 2px;
         background-color: $main-color-green;
         transform: rotate(-136deg);
+        @media (min-width: 400px) {
+            width: 21px;
+            height: 2.5px;
+        }
     }
     &::after {
         transform: rotate(-44deg);
