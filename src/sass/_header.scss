@@ -12,6 +12,9 @@
             display: block;
             margin-left: 35px;
             text-align: center;
+            & a {
+                display: inline-block;
+            }
         }
     }
     &__logo-text {
@@ -68,11 +71,33 @@
         }
     }
     &__item {
-        margin: 10px 0px;
+        margin: 15px 0px;
         padding: 5px 0px;
+        & a {
+            padding: 10px 30px;
+            @media (min-width: 992px) {
+                padding: 10px 10px;
+            }
+        }
         @media (min-width: 992px) {
+            position: relative;
             margin: 0;
             padding: 0;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0px;
+                bottom: -7px;
+                height: 1px;
+                width: 0;
+                background-color: $main-color-green;
+                transition: all 0.38s ease-out;
+            }
+            &:hover {
+                &::before {
+                    width: 100%;
+                }
+            }
         }
     }
 }

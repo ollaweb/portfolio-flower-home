@@ -32,6 +32,16 @@
             top: 22px;
         }
     }
+    @media (min-width: 992px) {
+        &:hover {
+            &::before {
+                background-color: $main-color-green-hover;
+            }
+            &::after {
+                background-color: $main-color-green-hover;
+            }
+        }
+    }
 }
 .slick-next {
     width: 21px;
@@ -46,6 +56,16 @@
         top: 17px;
         @media (min-width: 400px) {
             top: 22px;
+        }
+    }
+    @media (min-width: 992px) {
+        &:hover {
+            &::before {
+                background-color: $main-color-green-hover;
+            }
+            &::after {
+                background-color: $main-color-green-hover;
+            }
         }
     }
 }
@@ -84,10 +104,7 @@
         &_flowers {
             padding: 0px 17px;
             @media (min-width: 576px) {
-                padding: 0px 40px;
-            }
-            @media (min-width: 992px) {
-                padding: 0px 17px;
+                padding: 0px 36px;
             }
         }
         &_feedback {

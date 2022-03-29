@@ -19,6 +19,9 @@
     }
     &__logo {
         text-align: center;
+        & a {
+            display: inline-block;
+        }
         @media (min-width: 992px) {
             margin-left: 25px;
         }

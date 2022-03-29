@@ -4,10 +4,13 @@
     right: 30px;
     width: 38px;
     height: 38px;
-    z-index: 6;
+    z-index: 10;
     visibility: hidden;
     opacity: 0;
     transition: 0.5s opacity, 0.5s visibility;
+    border-radius: 100%;
+    background-color: rgba(109, 135, 116, 0.7);
+    cursor: pointer;
     &._active {
         visibility: visible;
         opacity: 1;
@@ -15,18 +18,19 @@
     @media (min-width: 1800px) {
         right: 10%;
     }
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
-        background-color: rgba(141, 140, 165, 0.7);
-    }
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     border-radius: 100%;
+    //     background-color: rgba(79, 101, 85, 0.7);
+    // }
 
-    &__arrow {
+    &_link {
+        display: inline-block;
         width: 100%;
         height: 100%;
         &::before {
