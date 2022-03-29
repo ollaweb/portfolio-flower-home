@@ -1,4 +1,5 @@
 .header {
+    position: relative;
     padding: 54px 0px 32px;
     background-color: #fff;
     &__container {
@@ -21,18 +22,57 @@
 }
 
 .menu {
-    display: none;
+    padding: 80px 0px;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    z-index: 6;
+    background-color: #fff;
+    transition: all 0.6s ease-out;
+    &._opened {
+        right: 0;
+        visibility: visible;
+    }
     @media (min-width: 992px) {
+        padding: 0;
+        position: static;
         display: block;
         margin-right: 124px;
+        height: auto;
+        width: auto;
         flex: 1 1 auto;
+        background-color: none;
     }
     &__items {
-        margin: 0 auto;
+        margin: 0px auto;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        width: 580px;
-        font-size: 24px;
+        align-items: center;
+        font-size: 22px;
         color: $main-color-green;
+        & > :not(:last-child) {
+            margin-bottom: 20px;
+            @media (min-width: 992px) {
+                margin-bottom: 0;
+            }
+        }
+        @media (min-width: 400px) {
+            font-size: 24px;
+        }
+        @media (min-width: 992px) {
+            flex-direction: row;
+            width: 580px;
+        }
+    }
+    &__item {
+        margin: 10px 0px;
+        padding: 5px 0px;
+        @media (min-width: 992px) {
+            margin: 0;
+            padding: 0;
+        }
     }
 }

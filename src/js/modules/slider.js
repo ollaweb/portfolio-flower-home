@@ -4,7 +4,7 @@ $(".slider__items_flowers").slick({
     arrows: true,
     dots: true,
     slidesToShow: 1,
-    touchThreshold: 5,
+    touchThreshold: 10,
     touchMove: false,
     mobileFirst: true,
     responsive: [
@@ -12,7 +12,7 @@ $(".slider__items_flowers").slick({
             breakpoint: 576,
             settings: {
                 arrows: true,
-                touchThreshold: 5,
+                touchThreshold: 10,
                 touchMove: false,
             }
         },
@@ -21,7 +21,7 @@ $(".slider__items_flowers").slick({
             settings: {
                 arrows: true,
                 slidesToShow: 2,
-                touchThreshold: 5,
+                touchThreshold: 10,
                 touchMove: false,
             }
         },
@@ -39,7 +39,7 @@ $(".slider__items_flowers").slick({
 $(".slider__items_feedback").slick({
     dots: true,
     draggable: false,
-    touchThreshold: 5,
+    touchThreshold: 8,
     touchMove: false,
     adaptiveHeight: true,
 });
