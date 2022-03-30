@@ -73,6 +73,12 @@
         height: 55px;
         background-color: #fff;
         border-radius: 100%;
+        & a {
+            padding: 10px;
+            display: inline-block;
+            margin-top: -10px;
+            margin-left: -10px;
+        }
         &:not(:last-child) {
             margin-right: 17px;
         }
