@@ -3,6 +3,7 @@
 //Папка исходнико в папка назначения
 const srcPath = 'src';
 const buildPath = 'dist';
+// const buildPath = '/MAMP/htdocs/flower-house';
 const path = {
     src: {
         html: [srcPath + '/*.html', "!" + srcPath + '/_*.html'],
@@ -10,6 +11,7 @@ const path = {
         js: srcPath + '/js/**/*.js',
         img: srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
         fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf,eot,svg,otf}',
+        php: srcPath + '/*.php',
     },
     watch: {
         html: srcPath + '/**/*.html',
@@ -17,6 +19,7 @@ const path = {
         js: srcPath + '/js/**/*.js',
         img: srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
         fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf}',
+        php: srcPath + '/*.php',
     },
     build: {
         html: buildPath + '/',
@@ -24,6 +27,7 @@ const path = {
         js: buildPath + '/js',
         img: buildPath + '/img',
         fonts: buildPath + '/fonts',
+        php: buildPath + '/',
     },
     clean: './' + buildPath,
 }
@@ -146,7 +150,7 @@ function js_production() {
         .pipe(dest(path.build.js))
 }
 
-//Минимизируем картинки проекта и переносим их в папку dist/accets 
+//Минимизируем картинки проекта и переносим их в папку dist 
 function images() {
     return src(path.src.img)
         .pipe(imagemin())
@@ -162,11 +166,11 @@ function fonts() {
 }
 
 //Перенос файлов php в папку dist
-// function php() {
-//     return src(path.src.php)
-//         .pipe(dest(path.build.php))
-//         .pipe(browserSync.stream())
-// }
+function php() {
+    return src(path.src.php)
+        .pipe(dest(path.build.php))
+        .pipe(browserSync.stream())
+}
 
 //Перед новым заданием удалить прошлую папку, чтобы на выходе
 //были только обновленные и актуальные файлы
@@ -181,10 +185,10 @@ function watchFiles() {
     watch([path.watch.js], js);
     watch([path.watch.img], images);
     watch([path.watch.fonts], fonts);
-    // watch([path.watch.php], php);
+    watch([path.watch.php], php);
 }
 
-let build = series(clean, parallel(html, css, js, images, fonts));
+let build = series(clean, parallel(html, css, js, images, fonts, php));
 let taskManager = parallel(build, watchFiles, sync);
 
 
@@ -194,7 +198,7 @@ exports.js = js;
 exports.js_production = js_production;
 exports.images = images;
 exports.fonts = fonts;
-// exports.php = php;
+exports.php = php;
 exports.clean = clean;
 exports.build = build;
 exports.sync = sync;

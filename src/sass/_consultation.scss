@@ -64,6 +64,13 @@
             color: $main-color-green;
             background-color: $input-background;
             border-radius: 50px;
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-text-fill-color: #3f574a;
+                -webkit-box-shadow: 0 0 0px 1000px #f1c7c5 inset;
+                transition: background-color 5000s ease-in-out 0s;
+            }
             @media (min-width: 576px) {
                 padding: 19px 42px 15px;
             }
@@ -71,6 +78,7 @@
                 font-size: 20px;
             }
             &:focus {
+                transition: all 0.4s ease;
                 box-shadow: 0 0 7px $spot-color-active;
             }
         }
@@ -85,7 +93,19 @@
         }
     }
     &__button {
+        margin-bottom: 0 !important;
         padding: 10px 20px;
+        position: relative;
+        top: 0;
         cursor: pointer;
+        transition: top 0.1s ease-in;
+        &:active {
+            top: 3px;
+        }
     }
+}
+
+.status-message {
+    margin-top: 10px;
+    line-height: 150%;
 }

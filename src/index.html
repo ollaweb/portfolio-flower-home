@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./accets/img/favicon.ico">
+    <link rel="icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="./css/style.min.css">
 
     <title>Flower House</title>
@@ -232,9 +232,9 @@
                         <p class="consultation__text">Заполните форму, и наши специалисты помогут подобрать растение</p>
                         <form id="form" action="#" method="post" enctype="multipart/form-data" name="consultation"
                             class="consultation__form">
-                            <input name="name" type="text" placeholder="Имя">
-                            <input name="phone" type="tel" placeholder="Телефон">
-                            <input name="email" type="email" placeholder="Почта">
+                            <input name="name" type="text" placeholder="Имя" required>
+                            <input name="phone" type="tel" placeholder="Телефон" maxlength="18" required>
+                            <input name="email" type="email" placeholder="Почта" required>
                             <button type="submit" class="consultation__button button">хочу консультацию</button>
                         </form>
                     </div>
