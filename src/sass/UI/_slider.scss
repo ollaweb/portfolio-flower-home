@@ -103,12 +103,35 @@
     &__items {
         &_flowers {
             padding: 0px 17px;
+            & .slick-prev {
+                @media (min-width: 1250px) {
+                    left: -42px;
+                }
+            }
+            & .slick-next {
+                @media (min-width: 1250px) {
+                    right: -42px;
+                }
+            }
             @media (min-width: 576px) {
                 padding: 0px 36px;
+            }
+            @media (min-width: 1250px) {
+                padding: 0;
             }
         }
         &_feedback {
             padding: 0px 25px;
+            & .slick-prev {
+                @media (min-width: 992px) {
+                    left: -17px;
+                }
+            }
+            & .slick-next {
+                @media (min-width: 992px) {
+                    right: -17px;
+                }
+            }
             @media (min-width: 576px) {
                 padding: 0px 63px;
             }

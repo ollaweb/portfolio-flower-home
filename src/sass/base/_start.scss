@@ -91,11 +91,6 @@ body {
     font-family: "Excentra Pro";
     font-weight: 300;
     line-height: 100%;
-    @media (max-width: 992px) {
-        &._lock {
-            overflow: hidden;
-        }
-    }
     background-color: #fff;
 }
 

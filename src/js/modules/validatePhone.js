@@ -1,5 +1,4 @@
-export default function validatePhone() {
-    const phoneInputs = document.querySelectorAll("input[type='tel']");
+export default function validatePhone(phoneInputs) {
 
     function getInputNumbersValue(input) {
         return input.value.replace(/\D/g, "");
@@ -23,12 +22,14 @@ export default function validatePhone() {
                     inputNumbersValue.slice(4, 7) + "-" +
                     inputNumbersValue.slice(7, 9) + "-" +
                     inputNumbersValue.slice(9, 11);
-            } else {
+            } else if (inputNumbersValue[0] == "7") {
                 phoneInput.value = "+" + inputNumbersValue[0] + " (" +
                     inputNumbersValue.slice(1, 4) + ") " +
                     inputNumbersValue.slice(4, 7) + "-" +
                     inputNumbersValue.slice(7, 9) + "-" +
                     inputNumbersValue.slice(9, 11);
+            } else {
+                phoneInput.value = "+" + inputNumbersValue;
             }
         }
 
@@ -45,21 +46,55 @@ export default function validatePhone() {
                 //If we try to enter not number the mask will be broken
                 phoneInput.value = inputNumbersValue;
                 //But the cursor position will be at the same place
-                if (cursorPosition >= 4 && cursorPosition <= 7) {
-                    phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 3;
+                if (phoneInput.value[0] == "7") {
+                    if (cursorPosition == 2) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 1;
+                    }
+                    if (cursorPosition == 3) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 2;
+                    }
+                    if (cursorPosition >= 4 && cursorPosition <= 7) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 3;
+                    }
+                    if (cursorPosition == 8) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 4;
+                    }
+                    if (cursorPosition > 8 && cursorPosition <= 12) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 5;
+                    }
+                    if (cursorPosition > 12 && cursorPosition <= 15) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 6;
+                    }
+                    if (cursorPosition > 15 && cursorPosition < 18) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 7;
+                    }
+                } else if (phoneInput.value[0] == 8) {
+                    if (cursorPosition == 1) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition;
+                    }
+                    if (cursorPosition == 2) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 1;
+                    }
+                    if (cursorPosition >= 3 && cursorPosition <= 6) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 2;
+                    }
+                    if (cursorPosition == 7) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 3;
+                    }
+                    if (cursorPosition > 7 && cursorPosition <= 11) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 4;
+                    }
+                    if (cursorPosition > 11 && cursorPosition <= 14) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 5;
+                    }
+                    if (cursorPosition > 14 && cursorPosition < 17) {
+                        phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 6;
+                    }
                 }
-                if (cursorPosition == 8) {
-                    phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 4;
+                else {
+                    phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 1;
                 }
-                if (cursorPosition > 8 && cursorPosition <= 12) {
-                    phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 5;
-                }
-                if (cursorPosition > 12 && cursorPosition <= 15) {
-                    phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 6;
-                }
-                if (cursorPosition > 15 && cursorPosition < 18) {
-                    phoneInput.selectionStart = phoneInput.selectionEnd = cursorPosition - 7;
-                }
+
             }
             /*
            When the total amount of numbers will be 11 again after correction,
@@ -68,6 +103,7 @@ export default function validatePhone() {
             if (inputNumbersValue.length == 11) {
                 showMaskAgain();
             }
+
             return
         }
 
@@ -104,7 +140,17 @@ export default function validatePhone() {
             //other phone
             formatedInputValue = "+" + inputNumbersValue.substring(0, 16);
         }
-        return phoneInput.value = formatedInputValue;
+        phoneInput.value = formatedInputValue;
+
+        //When it's 11-16 of numbers in phone value, then number is valid
+        if (inputNumbersValue.length >= 11 && inputNumbersValue.length <= 16) {
+            phoneInput.classList.remove("invalid");
+        } else {
+            phoneInput.classList.add("invalid");
+        }
+
+        return
+
     }
 
     function onPhoneDelete(e) {

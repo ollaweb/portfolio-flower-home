@@ -1,9 +1,15 @@
 .feedback {
     padding-top: 9px;
-    padding-bottom: 81px;
+    padding-bottom: 54px;
     background-color: $background-color;
+    @media (min-width: 576px) {
+        padding-bottom: 81px;
+    }
     &__slider {
-        margin-top: 84px;
+        margin-top: 44px;
+        @media (min-width: 768px) {
+            margin-top: 84px;
+        }
         @media (min-width: 992px) {
             margin: 84px 119px 0;
         }

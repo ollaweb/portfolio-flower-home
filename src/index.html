@@ -21,6 +21,7 @@
                         <p class="header__logo-text">flower <br> house</p>
                     </a>
                 </div>
+                <div class="menu-overlay"></div>
                 <nav class="header__menu menu">
                     <ul class="menu__items">
                         <li class="menu__item">
@@ -232,10 +233,12 @@
                         <p class="consultation__text">Заполните форму, и наши специалисты помогут подобрать растение</p>
                         <form id="form" action="#" method="post" enctype="multipart/form-data" name="consultation"
                             class="consultation__form">
-                            <input name="name" type="text" placeholder="Имя" required>
-                            <input name="phone" type="tel" placeholder="Телефон" maxlength="18" required>
-                            <input name="email" type="email" placeholder="Почта" required>
-                            <button type="submit" class="consultation__button button">хочу консультацию</button>
+                            <input class="invalid" name="name" type="text" placeholder="Имя" minlength="2" required>
+                            <input class="invalid" name="phone" type="tel" placeholder="Телефон" maxlength="18"
+                                required>
+                            <input class="invalid" name="email" type="email" placeholder="Почта" required>
+                            <button type="submit" disabled class="consultation__button button">хочу
+                                консультацию</button>
                         </form>
                     </div>
                 </div>

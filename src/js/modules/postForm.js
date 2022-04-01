@@ -1,6 +1,20 @@
-export default function postForm() {
-    const form = document.getElementById("form");
-    const inputs = document.querySelectorAll("input");
+import validateEmail from "./validateEmail";
+import validateName from "./validateName";
+import validatePhone from "./validatePhone";
+
+export default function postForm(form) {
+    const nameInputs = form.querySelectorAll("input[name='name']");
+    validateName(nameInputs);
+    const phoneInputs = form.querySelectorAll("input[type='tel']");
+    validatePhone(phoneInputs);
+    const emailInputs = form.querySelectorAll("input[type='email']");
+    validateEmail(emailInputs);
+
+    const inputsRequared = form.querySelectorAll('[required]');
+    const inputs = form.querySelectorAll("input");
+    const submitButton = form.querySelector("button[type='submit']");
+
+    console.log(submitButton.disabled)
 
     const message = {
         loading: "Отправка данных...",

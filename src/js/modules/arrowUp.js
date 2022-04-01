@@ -22,7 +22,7 @@ export default function useArrowUp() {
         */
         if (window.scrollY >= 1600 && window.innerWidth > 992) {
             arrowBlock.classList.add("_active");
-        } else if (window.scrollY >= 1200 && window.innerWidth <= 992) {
+        } else if (window.scrollY >= 1050 && window.innerWidth <= 992) {
             arrowBlock.classList.add("_active");
         } else {
             arrowBlock.classList.remove("_active");

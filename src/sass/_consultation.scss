@@ -1,7 +1,16 @@
 .consultation {
     padding-top: 101px;
-    padding-bottom: 192px;
+    padding-bottom: 100px;
     background-color: $background-color;
+    @media (min-width: 400px) {
+        padding-bottom: 120px;
+    }
+    @media (min-width: 576px) {
+        padding-bottom: 150px;
+    }
+    @media (min-width: 768px) {
+        padding-bottom: 192px;
+    }
     &__block {
         position: relative;
         padding: 54px 10px 50px;
@@ -101,6 +110,9 @@
         transition: top 0.1s ease-in;
         &:active {
             top: 3px;
+        }
+        &:disabled {
+            background-color: $disabled;
         }
     }
 }
