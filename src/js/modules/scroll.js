@@ -15,11 +15,11 @@ export default function smoothScroll() {
             //Find HTML element by "href" attribute
             const linkInHtml = document.querySelector(linkHref);
 
-            //Coordinate Y for each link (no matter what scrollY is)
-            const linkYCoordinate = linkInHtml.getBoundingClientRect().top + window.scrollY;
+            //Coordinate Y for each link (no matter what pageYOffset is)
+            const linkYCoordinate = linkInHtml.getBoundingClientRect().top + window.pageYOffset;
 
             //Window Y position when we pressed on the link 
-            const positionY = window.scrollY;
+            const positionY = window.pageYOffset;
 
             //Set interval (iterations for smooth scroll)
             const scroller = setInterval(() => {
@@ -33,13 +33,13 @@ export default function smoothScroll() {
                 */
                 const stepScroll = (linkYCoordinate - positionY) / steps;
                 //if block we need scroll to is lower than link we just cliked on, then
-                if (linkYCoordinate > window.scrollY) {
+                if (linkYCoordinate > window.pageYOffset) {
                     /*
                     if delta Y between link and element more
                     than scroll by 1 step and it's not he end of the pфge,
                     then do down scroll by 1 step
                     */
-                    if ((linkYCoordinate - window.scrollY > stepScroll) && (window.innerHeight + window.scrollY < document.body.scrollHeight)) {
+                    if ((linkYCoordinate - window.pageYOffset > stepScroll) && (window.innerHeight + window.pageYOffset < document.body.scrollHeight)) {
                         window.scrollBy(0, stepScroll);
                     } else {
                         //else scroll strainght to the element and quit the interval
@@ -52,7 +52,7 @@ export default function smoothScroll() {
                     const stepScrollUp = positionY / steps;
 
                     //if delta Y between windowY and link Y coordinate more than 1 step scroll, then
-                    if (window.scrollY - linkYCoordinate > stepScrollUp) {
+                    if (window.pageYOffset - linkYCoordinate > stepScrollUp) {
                         window.scrollBy(0, stepScrollUp * -1);
                     } else {
                         //else scroll strainght to the element and quit the interval

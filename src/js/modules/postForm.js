@@ -14,7 +14,24 @@ export default function postForm(form) {
     const inputs = form.querySelectorAll("input");
     const submitButton = form.querySelector("button[type='submit']");
 
-    console.log(submitButton.disabled)
+    form.addEventListener("change", () => {
+        submitButton.removeAttribute("disabled");
+        inputsRequared.forEach(input => {
+            if (input.classList.contains("invalid")) {
+                submitButton.setAttribute("disabled", "disabled");
+            }
+        });
+    });
+
+    // for (let i = 0; i < inputsRequared.length; i++) {
+    //     if (inputsRequared[i].classList.contains("invalid")) {
+    //         submitButton.setAttribute("disabled", "disabled");
+    //         break;
+    //     } else {
+    //         submitButton.removeAttribute("disabled");
+    //     }
+    // }
+
 
     const message = {
         loading: "Отправка данных...",
@@ -35,6 +52,8 @@ export default function postForm(form) {
     const clearInputs = () => {
         inputs.forEach(input => {
             input.value = "";
+            input.classList.add("invalid");
+            submitButton.setAttribute("disabled", "disabled");
         });
     };
 
