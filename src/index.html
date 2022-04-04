@@ -246,11 +246,23 @@
                         <p class="consultation__text">Заполните форму, и наши специалисты помогут подобрать растение</p>
                         <form id="form" action="#" method="post" enctype="multipart/form-data" name="consultation"
                             class="consultation__form">
-                            <input class="invalid" name="name" type="text" placeholder="Имя" minlength="2" required>
-                            <input class="invalid" name="phone" type="tel" placeholder="Телефон" maxlength="18"
-                                required>
-                            <input class="invalid" name="email" type="email" placeholder="Почта" required>
-                            <button type="submit" class="consultation__button button" disabled>хочу
+                            <div>
+                                <input data-input data-input-name name="name" type="text" placeholder="Имя"
+                                    minlength="2" required>
+                            </div>
+                            <div>
+                                <input data-input data-input-name name="lastName" type="text" placeholder="Фамилия"
+                                    minlength="2">
+                            </div>
+                            <div>
+                                <input data-input data-input-phone name="phone" type="tel" placeholder="Телефон"
+                                    maxlength="18" required>
+                            </div>
+                            <div>
+                                <input data-input data-input-email name="email" type="email" placeholder="Почта"
+                                    required>
+                            </div>
+                            <button type="submit" class="consultation__button button">хочу
                                 консультацию</button>
                         </form>
                     </div>

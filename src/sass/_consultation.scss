@@ -57,6 +57,9 @@
     &__form {
         margin: 40px auto 0;
         max-width: 778px;
+        & div {
+            position: relative;
+        }
         @media (min-width: 576px) {
             margin: 67px auto 0;
         }
@@ -121,3 +124,18 @@
     margin-top: 10px;
     line-height: 150%;
 }
+
+.error-message {
+    position: absolute;
+    bottom: -3px;
+    left: 25px;
+    margin-bottom: 0 !important;
+    font-size: 14px;
+    text-align: left;
+    color: #CD2C25;
+}
+
+.invalid {
+    border: 2px solid #CD2C25;
+}
+

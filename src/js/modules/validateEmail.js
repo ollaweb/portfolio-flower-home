@@ -1,15 +1,20 @@
-export default function validateEmail(emailInputs) {
+export default function validateEmail(emailInput, wrongSymbolMessage, rightSymbolMessage, notValid, valid) {
 
     function onEmailInput(e) {
         let emailInput = e.target;
-        if (/^[a-zA-Z_.+-]+[0-9]*[a-zA-Z_.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,}$/g.test(emailInput.value) && emailInput.value !== "") {
-            emailInput.classList.remove("invalid");
+        if (/[а-яёА-ЯЁ\s]/ig.test(emailInput.value)) {
+            emailInput.dispatchEvent(wrongSymbolMessage);
+            emailInput.value = emailInput.value.replace(/[а-яёА-ЯЁ\s]/ig, "");
         } else {
-            emailInput.classList.add("invalid");
+            emailInput.dispatchEvent(rightSymbolMessage);
+            if (/^[a-z][a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,}$/g.test(emailInput.value) && emailInput.value !== "") {
+                emailInput.dispatchEvent(valid);
+            } else {
+                emailInput.dispatchEvent(notValid);
+            }
         }
+
     }
 
-    emailInputs.forEach(email => {
-        email.addEventListener("input", onEmailInput);
-    });
+    emailInput.addEventListener("input", onEmailInput);
 }

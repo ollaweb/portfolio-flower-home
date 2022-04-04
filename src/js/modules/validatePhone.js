@@ -1,4 +1,4 @@
-export default function validatePhone(phoneInputs) {
+export default function validatePhone(phoneInput, wrongSymbolMessage, rightSymbolMessage, notValid, valid) {
 
     function getInputNumbersValue(input) {
         return input.value.replace(/\D/g, "");
@@ -12,8 +12,11 @@ export default function validatePhone(phoneInputs) {
 
         //If trying to tape symbols will be blank input
         if (!inputNumbersValue) {
+            phoneInput.dispatchEvent(wrongSymbolMessage);
             return phoneInput.value = "";
+
         }
+
 
         function showMaskAgain() {
             if (inputNumbersValue[0] == "8") {
@@ -141,12 +144,13 @@ export default function validatePhone(phoneInputs) {
             formatedInputValue = "+" + inputNumbersValue.substring(0, 16);
         }
         phoneInput.value = formatedInputValue;
+        phoneInput.dispatchEvent(rightSymbolMessage);
 
         //When it's 11-16 of numbers in phone value, then number is valid
         if (inputNumbersValue.length >= 11 && inputNumbersValue.length <= 16) {
-            phoneInput.classList.remove("invalid");
+            phoneInput.dispatchEvent(valid);
         } else {
-            phoneInput.classList.add("invalid");
+            phoneInput.dispatchEvent(notValid);
         }
 
         return
@@ -172,9 +176,19 @@ export default function validatePhone(phoneInputs) {
         }
     }
 
-    phoneInputs.forEach(input => {
-        input.addEventListener("input", onPhoneInput);
-        input.addEventListener("keydown", onPhoneDelete);
-        input.addEventListener("paste", onPhonePaste);
-    });
+    function onPhoneChangePlaceholder(e) {
+        let phoneInput = e.target;
+        phoneInput.setAttribute("placeholder", "7 (___) ___-__-__  / 8 (___) ___-__-__")
+    }
+
+    function onPhoneDefaultPlaceholder(e) {
+        let phoneInput = e.target;
+        phoneInput.setAttribute("placeholder", "Телефон")
+    }
+
+    phoneInput.addEventListener("input", onPhoneInput);
+    phoneInput.addEventListener("keydown", onPhoneDelete);
+    phoneInput.addEventListener("paste", onPhonePaste);
+    phoneInput.addEventListener("focus", onPhoneChangePlaceholder);
+    phoneInput.addEventListener("blur", onPhoneDefaultPlaceholder);
 }

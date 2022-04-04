@@ -2,36 +2,34 @@ import validateEmail from "./validateEmail";
 import validateName from "./validateName";
 import validatePhone from "./validatePhone";
 
+import validateForm from "./validateForm";
+
 export default function postForm(form) {
-    const nameInputs = form.querySelectorAll("input[name='name']");
-    validateName(nameInputs);
-    const phoneInputs = form.querySelectorAll("input[type='tel']");
-    validatePhone(phoneInputs);
-    const emailInputs = form.querySelectorAll("input[type='email']");
-    validateEmail(emailInputs);
+    // const nameInputs = form.querySelectorAll("input[name='name']");
+    // validateName(nameInputs, iamNotValidFlag);
+    // const phoneInputs = form.querySelectorAll("input[type='tel']");
+    // validatePhone(phoneInputs, iamNotValidFlag);
+    // const emailInputs = form.querySelectorAll("input[type='email']");
+    // validateEmail(emailInputs, iamNotValidFlag);
+
+    validateForm(form);
 
     const inputsRequared = form.querySelectorAll('[required]');
     const inputs = form.querySelectorAll("input");
     const submitButton = form.querySelector("button[type='submit']");
 
-    form.addEventListener("change", () => {
-        submitButton.removeAttribute("disabled");
-        inputsRequared.forEach(input => {
-            if (input.classList.contains("invalid")) {
-                submitButton.setAttribute("disabled", "disabled");
-            }
-        });
+    // form.addEventListener("change", () => {
+    //     submitButton.removeAttribute("disabled");
+    //     inputsRequared.forEach(input => {
+    //         if (input.classList.contains("invalid")) {
+    //             submitButton.setAttribute("disabled", "disabled");
+    //         }
+    //     });
+    // });
+
+    form.addEventListener("iamNotValid", () => {
+        console.log("Somebody valid")
     });
-
-    // for (let i = 0; i < inputsRequared.length; i++) {
-    //     if (inputsRequared[i].classList.contains("invalid")) {
-    //         submitButton.setAttribute("disabled", "disabled");
-    //         break;
-    //     } else {
-    //         submitButton.removeAttribute("disabled");
-    //     }
-    // }
-
 
     const message = {
         loading: "Отправка данных...",

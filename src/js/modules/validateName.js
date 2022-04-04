@@ -1,17 +1,22 @@
-export default function validateName(nameInputs) {
-
+export default function validateName(nameInput, wrongSymbolMessage, rightSymbolMessage, notValid, valid) {
     function onNameInput(e) {
         let nameInput = e.target;
-        let inputSymbolsValue = nameInput.value.replace(/[^а-яёА-ЯЁ\s?]/ig, "");
-        nameInput.value = inputSymbolsValue;
-        if (inputSymbolsValue.length >= 2) {
-            nameInput.classList.remove("invalid");
+        if (/[^а-яёА-ЯЁ\s?]/ig.test(nameInput.value)) {
+            nameInput.value = nameInput.value.replace(/[^а-яёА-ЯЁ\s?]/ig, "");
+            nameInput.dispatchEvent(wrongSymbolMessage);
         } else {
-            nameInput.classList.add("invalid");
+            nameInput.dispatchEvent(rightSymbolMessage);
+            if (nameInput.value.length < 2) {
+                nameInput.dispatchEvent(notValid);
+            } else {
+                nameInput.dispatchEvent(valid);
+            }
         }
+
+
     }
 
-    nameInputs.forEach(name => {
-        name.addEventListener("input", onNameInput);
-    });
+    nameInput.addEventListener("input", onNameInput);
+
+
 }
