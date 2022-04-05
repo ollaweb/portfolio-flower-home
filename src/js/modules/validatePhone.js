@@ -148,13 +148,23 @@ export default function validatePhone(phoneInput, wrongSymbolMessage, rightSymbo
 
         //When it's 11-16 of numbers in phone value, then number is valid
         if (inputNumbersValue.length >= 11 && inputNumbersValue.length <= 16) {
+            phoneInput.setAttribute("valid", "valid");
+        } else {
+            phoneInput.removeAttribute("valid");
+        }
+
+        return
+    }
+
+    function onPhoneChange(e) {
+        let phoneInput = e.target;
+        let inputNumbersValue = getInputNumbersValue(phoneInput);
+        //When it's 11-16 of numbers in phone value, then number is valid
+        if (inputNumbersValue.length >= 11 && inputNumbersValue.length <= 16) {
             phoneInput.dispatchEvent(valid);
         } else {
             phoneInput.dispatchEvent(notValid);
         }
-
-        return
-
     }
 
     function onPhoneDelete(e) {
@@ -187,6 +197,7 @@ export default function validatePhone(phoneInput, wrongSymbolMessage, rightSymbo
     }
 
     phoneInput.addEventListener("input", onPhoneInput);
+    phoneInput.addEventListener("change", onPhoneChange);
     phoneInput.addEventListener("keydown", onPhoneDelete);
     phoneInput.addEventListener("paste", onPhonePaste);
     phoneInput.addEventListener("focus", onPhoneChangePlaceholder);

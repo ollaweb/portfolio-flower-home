@@ -5,36 +5,30 @@ import validatePhone from "./validatePhone";
 import validateForm from "./validateForm";
 
 export default function postForm(form) {
-    // const nameInputs = form.querySelectorAll("input[name='name']");
-    // validateName(nameInputs, iamNotValidFlag);
-    // const phoneInputs = form.querySelectorAll("input[type='tel']");
-    // validatePhone(phoneInputs, iamNotValidFlag);
-    // const emailInputs = form.querySelectorAll("input[type='email']");
-    // validateEmail(emailInputs, iamNotValidFlag);
-
     validateForm(form);
+    const inputs = form.querySelectorAll('[data-input]');
 
     const inputsRequared = form.querySelectorAll('[required]');
-    const inputs = form.querySelectorAll("input");
-    const submitButton = form.querySelector("button[type='submit']");
 
-    // form.addEventListener("change", () => {
-    //     submitButton.removeAttribute("disabled");
-    //     inputsRequared.forEach(input => {
-    //         if (input.classList.contains("invalid")) {
-    //             submitButton.setAttribute("disabled", "disabled");
-    //         }
-    //     });
-    // });
-
-    form.addEventListener("iamNotValid", () => {
-        console.log("Somebody valid")
+    let flagArray;
+    form.addEventListener("input", () => {
+        flagArray = [];
+        for (let i = 0; i < inputsRequared.length; i++) {
+            if (inputsRequared[i].hasAttribute("valid")) {
+                flagArray.push(true);
+            } else {
+                flagArray.push(false);
+            }
+        }
     });
+
+
 
     const message = {
         loading: "Отправка данных...",
         success: "Спасибо! Наш консультат всяжется с Вами в ближайшее время",
-        error: "Ошибка отправки данных!"
+        error: "Ошибка отправки данных!",
+        valid: "Заполните корректно обязательные поля!"
     }
 
     const postData = async (url, data) => {
@@ -50,11 +44,12 @@ export default function postForm(form) {
     const clearInputs = () => {
         inputs.forEach(input => {
             input.value = "";
-            input.classList.add("invalid");
-            submitButton.setAttribute("disabled", "disabled");
+        });
+        const errorMassages = form.querySelectorAll(".error-message");
+        errorMassages.forEach(error => {
+            error.remove();
         });
     };
-
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -63,19 +58,31 @@ export default function postForm(form) {
         form.appendChild(statusMessage);
 
         const formData = new FormData(form);
-        postData('./server.php', formData)
-            .then(result => {
-                console.log(result);
-                statusMessage.innerHTML = message.success;
-            })
-            .catch(() => {
-                statusMessage.innerHTML = message.error;
-            })
-            .finally(() => {
-                clearInputs();
-                setTimeout(() => {
-                    statusMessage.remove();
-                }, 5000);
-            });
+
+        if (flagArray.every(item => item == true)) {
+            postData('./server.php', formData)
+                .then(result => {
+                    console.log(result);
+                    statusMessage.innerHTML = message.success;
+                })
+                .catch(() => {
+                    statusMessage.innerHTML = message.error;
+                })
+                .finally(() => {
+
+                    clearInputs();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 5000);
+                });
+
+        } else {
+            statusMessage.innerHTML = message.valid;
+            statusMessage.style.color = "red";
+            setTimeout(() => {
+                statusMessage.remove();
+            }, 5000);
+        }
     });
+
 }

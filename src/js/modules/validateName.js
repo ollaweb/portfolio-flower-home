@@ -7,16 +7,27 @@ export default function validateName(nameInput, wrongSymbolMessage, rightSymbolM
         } else {
             nameInput.dispatchEvent(rightSymbolMessage);
             if (nameInput.value.length < 2) {
-                nameInput.dispatchEvent(notValid);
+                nameInput.removeAttribute("valid");
             } else {
-                nameInput.dispatchEvent(valid);
+                nameInput.setAttribute("valid", "valid");
+
             }
         }
+    }
 
+    function onNameChange(e) {
+        let nameInput = e.target;
+        if (nameInput.value.length < 2) {
+            nameInput.dispatchEvent(notValid);
+        } else {
+            nameInput.dispatchEvent(valid);
 
+        }
     }
 
     nameInput.addEventListener("input", onNameInput);
+    nameInput.addEventListener("change", onNameChange);
+
 
 
 }
