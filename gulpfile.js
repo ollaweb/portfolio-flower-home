@@ -188,7 +188,7 @@ function watchFiles() {
     watch([path.watch.php], php);
 }
 
-let build = series(clean, parallel(html, css, js, images, fonts, php));
+let build = series(clean, parallel(html, css, js_production, images, fonts, php));
 let taskManager = parallel(build, watchFiles, sync);
 
 

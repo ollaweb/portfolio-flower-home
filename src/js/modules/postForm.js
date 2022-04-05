@@ -26,7 +26,7 @@ export default function postForm(form) {
 
     const message = {
         loading: "Отправка данных...",
-        success: "Спасибо! Наш консультат всяжется с Вами в ближайшее время",
+        success: "Спасибо! Наш консультант свяжется с Вами в ближайшее время",
         error: "Ошибка отправки данных!",
         valid: "Заполните корректно обязательные поля!"
     }
@@ -57,6 +57,7 @@ export default function postForm(form) {
         statusMessage.classList.add("status-message");
         form.appendChild(statusMessage);
 
+
         const formData = new FormData(form);
 
         if (flagArray.every(item => item == true)) {
@@ -67,21 +68,26 @@ export default function postForm(form) {
                 })
                 .catch(() => {
                     statusMessage.innerHTML = message.error;
+                    statusMessage.style.color = "red";
                 })
                 .finally(() => {
-
                     clearInputs();
                     setTimeout(() => {
                         statusMessage.remove();
                     }, 5000);
                 });
 
-        } else {
+        }
+        else if (form.querySelector(".status-message").innerHTML !== message.valid) {
+            console.log(form.querySelector(".status-message").value !== "");
             statusMessage.innerHTML = message.valid;
             statusMessage.style.color = "red";
             setTimeout(() => {
                 statusMessage.remove();
             }, 5000);
+
+        } else {
+            statusMessage.remove();
         }
     });
 
