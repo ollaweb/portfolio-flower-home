@@ -1,4 +1,4 @@
-# Landing FLOWER HOME
+# Landing FLOWER HOUSE
 [Demo website to test my project](https://ollaweb.github.io/portfolio-flower-home/)
 ## Time of working
 23 March 2022 - 05 April 2022
