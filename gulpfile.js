@@ -9,7 +9,7 @@ const path = {
         html: [srcPath + '/*.html', "!" + srcPath + '/_*.html'],
         css: srcPath + '/sass/*.scss',
         js: srcPath + '/js/**/*.js',
-        img: srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
+        img: [srcPath + '/img/**/*.{jpg,png,svg,gif,ico,webp}', "!" + srcPath + '/img/**/_*.{jpg,png,svg,gif,ico,webp}'],
         fonts: srcPath + '/fonts/**/*.{woff,woff2,ttf,eot,svg,otf}',
         php: srcPath + '/*.php',
     },
