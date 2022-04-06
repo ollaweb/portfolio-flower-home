@@ -113,6 +113,10 @@ body {
   background-color: #fff;
 }
 
+body._lock {
+  overflow: hidden;
+}
+
 .image-bg {
   position: relative;
 }
@@ -379,17 +383,13 @@ body {
   opacity: 0;
   transition: 0.5s opacity, 0.5s visibility;
   border-radius: 100%;
-  background-color: rgba(79, 101, 85, 0.7);
+  background-color: rgba(109, 135, 116, 0.7);
   cursor: pointer;
 }
 
 .arrow-up._active {
   visibility: visible;
   opacity: 1;
-}
-
-.arrow-up._footer {
-  background-color: rgba(109, 135, 116, 0.7);
 }
 
 .arrow-up_link {
@@ -573,14 +573,15 @@ body {
   text-align: center;
   text-transform: uppercase;
   z-index: 5;
+  color: #3f574a;
 }
 
 .promo__small-flower {
   position: absolute;
-  top: -8px;
+  top: 12px;
   left: 5%;
   width: 133px;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .promo__big-flower {
@@ -1130,6 +1131,7 @@ body {
 
   .promo__small-flower {
     left: 12%;
+    opacity: 0.8;
   }
 
   .promo__buttons {
