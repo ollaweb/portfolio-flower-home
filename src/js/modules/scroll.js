@@ -1,9 +1,9 @@
 export default function smoothScroll() {
     //Collecting all links that starts with #
     const allLinks = document.querySelectorAll("a[href*='#']");
-    const animationDuration = 500;
+    const animationDuration = 300;
     //Set amount of steps to do while animation duration lasts
-    const steps = 60;
+    const steps = 30;
 
     allLinks.forEach(link => {
         link.addEventListener("click", (e) => {

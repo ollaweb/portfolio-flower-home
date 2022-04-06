@@ -1,4 +1,5 @@
 export default function useBurger() {
+    const body = document.body;
     const burger = document.querySelector(".burger");
     const burgerStrips = document.querySelector(".burger__items");
     const menu = document.querySelector(".menu");
@@ -8,13 +9,13 @@ export default function useBurger() {
     function openBurgerMenu() {
         burgerStrips.classList.add("_opened");
         menu.classList.add("_opened");
-        document.body.style.overflow = "hidden";
+        body.classList.add("_lock");
         menuOverlay.classList.add("menu-overlay_opened");
     }
     function closeBurgerMenu() {
         burgerStrips.classList.remove("_opened");
         menu.classList.remove("_opened");
-        document.body.style.overflow = "";
+        body.classList.remove("_lock");
         menuOverlay.classList.remove("menu-overlay_opened");
     }
     function closeByClickOnOverlay() {

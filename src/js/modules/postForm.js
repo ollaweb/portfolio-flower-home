@@ -33,6 +33,7 @@ export default function postForm(form) {
 
     const postData = async (url, data) => {
         document.querySelector(".status-message").innerHTML = message.loading;
+        document.querySelector(".status-message").style.color = "inherit";
         let result = await fetch(url, {
             method: "POST",
             body: data
@@ -65,6 +66,7 @@ export default function postForm(form) {
                 .then(result => {
                     console.log(result);
                     statusMessage.innerHTML = message.success;
+                    statusMessage.style.color = "inherit";
                 })
                 .catch(() => {
                     statusMessage.innerHTML = message.error;

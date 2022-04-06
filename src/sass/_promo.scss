@@ -66,6 +66,7 @@
         text-align: center;
         text-transform: uppercase;
         z-index: 5;
+        color: $main-color-green;
         @media (min-width: 400px) {
             font-size: 84px;
         }
@@ -81,12 +82,16 @@
     }
     &__small-flower {
         position: absolute;
-        top: -8px;
+        top: 12px;
         left: 5%;
         width: 133px;
-        opacity: 0.8;
+        opacity: 0.6;
+        @media (min-width: 400px) {
+
+        }
         @media (min-width: 576px) {
             left: 12%;
+            opacity: 0.8;
         }
         @media (min-width: 768px) {
             left: 10%;

@@ -15,7 +15,7 @@ About **CSS**:
 ---
 Added slick-slider on jQuery. 
 About **native JS**: 
-* arrow-up button changes it's color above footer for better vision(because it has footers' color);
+* arrow-up button;
 * smooth scroll is smart. It calculates the didstance between anchor block and link and does scroll it for fixed duration time (the greater the distance the greater the speed);
 * form validation show error messages when you try to enter not allowed symbols and when you try to submit invalid value.
 ---

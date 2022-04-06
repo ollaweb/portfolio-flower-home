@@ -1,34 +1,24 @@
 import $ from "jquery";
 import slick from "slick-carousel";
 $(".slider__items_flowers").slick({
-    arrows: true,
+    // arrows: true,
     dots: true,
+    speed: 250,
     slidesToShow: 1,
-    touchThreshold: 10,
+    touchThreshold: 20,
     touchMove: false,
     mobileFirst: true,
     responsive: [
         {
-            breakpoint: 576,
-            settings: {
-                arrows: true,
-                touchThreshold: 10,
-                touchMove: false,
-            }
-        },
-        {
             breakpoint: 768,
             settings: {
-                arrows: true,
                 slidesToShow: 2,
-                touchThreshold: 10,
-                touchMove: false,
             }
         },
         {
             breakpoint: 992,
             settings: {
-                arrows: true,
+                speed: 350,
                 slidesToShow: 3,
                 draggable: false,
             }
@@ -38,8 +28,19 @@ $(".slider__items_flowers").slick({
 });
 $(".slider__items_feedback").slick({
     dots: true,
-    draggable: false,
-    touchThreshold: 8,
+    speed: 250,
+    touchThreshold: 20,
     touchMove: false,
     adaptiveHeight: true,
+    mobileFirst: true,
+    responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+                speed: 350,
+                draggable: false,
+            }
+        }
+
+    ]
 });
