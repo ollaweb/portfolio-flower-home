@@ -49,6 +49,7 @@ const imagemin = require('gulp-imagemin'); //сжимать картинки д�
 // const uglify = require('gulp-uglify-es').default; //js parser
 const del = require('del'); //удаляет файлы
 const webpack = require('webpack-stream');
+const TerserPlugin = require("terser-webpack-plugin");
 
 //Инициализируем BrowserSync
 function sync() {
@@ -127,7 +128,7 @@ function js_production() {
         .pipe(webpack({
             mode: 'production',
             output: {
-                filename: 'bundle.js'
+                filename: 'bundle.min.js'
             },
             module: {
                 rules: [
@@ -145,7 +146,11 @@ function js_production() {
                         }
                     }
                 ]
-            }
+            },
+            optimization: {
+                minimize: true,
+                minimizer: [new TerserPlugin()],
+            },
         }))
         .pipe(dest(path.build.js))
 }

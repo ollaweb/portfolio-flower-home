@@ -4,7 +4,7 @@
 23 March 2022 - 05 April 2022
 
 ### Review
-![Look at this lovely design](https://github.com/ollaweb/portfolio-flower-home/blob/main/src/img/_flower-house.jpg)
+![Look at this lovely design](https://github.com/ollaweb/portfolio-flower-home/blob/main/src/img/flower-house.jpg)
 Designed by [Zoe Levchenko](https://www.behance.net/zoiweb)
 ### Descroption
 Small project to practice HTML, CSS and native JS.
