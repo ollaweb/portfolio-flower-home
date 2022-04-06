@@ -361,7 +361,7 @@ body._lock {
 }
 
 .slider__items_flowers {
-  padding: 0px 17px;
+  padding: 0px 20px;
 }
 
 .slider__items_feedback {
@@ -1073,6 +1073,10 @@ body._lock {
     top: 22px;
   }
 
+  .slider__items_flowers {
+    padding: 0px 30px;
+  }
+
   .menu__items {
     font-size: 24px;
   }
@@ -1616,16 +1620,16 @@ body._lock {
 }
 
 @media (min-width: 1250px) {
+  .slider__items_flowers {
+    padding: 0;
+  }
+
   .slider__items_flowers .slick-prev {
     left: -42px;
   }
 
   .slider__items_flowers .slick-next {
     right: -42px;
-  }
-
-  .slider__items_flowers {
-    padding: 0;
   }
 }
 
