@@ -13,6 +13,7 @@
     "browser-sync": "^2.27.7",
     "core-js": "^3.21.1",
     "del": "^6.0.0",
+    "gh-pages": "^3.2.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
@@ -38,7 +39,8 @@
   ],
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -48,7 +50,7 @@
   "bugs": {
     "url": "https://github.com/ollaweb/portfolio-flower-home/issues"
   },
-  "homepage": "https://github.com/ollaweb/portfolio-flower-home#readme",
+  "homepage": "https://ollaweb.github.io/portfolio-flower-home/",
   "dependencies": {
     "jquery": "^3.6.0",
     "slick-carousel": "^1.8.1"
